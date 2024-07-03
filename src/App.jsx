@@ -1,4 +1,7 @@
-const App = () => {
+import { useQuery } from "@tanstack/react-query"
+import { getNotes } from "./requests"
+
+function App() {
   const addNote = async (event) => {
     event.preventDefault()
     const content = event.target.note.value
@@ -10,9 +13,19 @@ const App = () => {
     console.log('toggle importance of', note.id)
   }
 
-  const notes = []
+  const result = useQuery({
+    queryKey: ['notes'],
+    queryFn: getNotes
+  })
+  console.log(JSON.parse(JSON.stringify(result)))
 
-  return(
+  if (result.isLoading) {
+    return <div>Loading...</div>
+  }
+
+  const notes = result.data
+
+  return (
     <div>
       <h2>Notes app</h2>
       <form onSubmit={addNote}>
@@ -21,7 +34,7 @@ const App = () => {
       </form>
       {notes.map(note =>
         <li key={note.id} onClick={() => toggleImportance(note)}>
-          {note.content} 
+          {note.content}
           <strong> {note.important ? 'important' : ''}</strong>
         </li>
       )}

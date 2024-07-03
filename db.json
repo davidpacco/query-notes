@@ -1,0 +1,14 @@
+{
+  "notes": [
+    {
+      "content": "react query",
+      "important": true,
+      "id": 1
+    },
+    {
+      "content": "testing note",
+      "important": false,
+      "id": 2
+    }
+  ]
+}
