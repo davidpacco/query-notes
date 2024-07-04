@@ -3,12 +3,22 @@
     {
       "content": "react query",
       "important": true,
-      "id": 1
+      "id": "1"
     },
     {
       "content": "testing note",
       "important": false,
-      "id": 2
+      "id": "2"
+    },
+    {
+      "id": "866a",
+      "content": "New note #1",
+      "important": false
+    },
+    {
+      "id": "10a8",
+      "content": "New note #2",
+      "important": false
     }
   ]
 }
